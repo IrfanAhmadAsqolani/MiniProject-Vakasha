@@ -1,0 +1,11 @@
+.Header {
+    background-image: url("../../Assets/header-img.jpg");
+    height: 750px;
+}
+
+#btn-discover{
+    color: #fff;
+    background-color: #142A49;
+    border-color: #142A49;
+    border-radius: 8px;
+}

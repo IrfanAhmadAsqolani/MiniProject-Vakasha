@@ -1,0 +1,15 @@
+.header {
+    background-color: #142A49;
+}
+
+.btn-signup {
+    padding-left: 8px;
+    padding-right: 8px;
+}
+
+#btn-signup{
+    color: #142A49;
+    background-color: #fff;
+    border-color: #142A49;
+    border-radius: 8px;
+}

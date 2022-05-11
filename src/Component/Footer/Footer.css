@@ -1,0 +1,14 @@
+#bg-color-footer{
+    background-color: #173156;
+}
+
+.hr-footer{
+    width: '60px'; 
+    height: '5px';
+    background-color: #fff;
+    color: white;
+}
+
+#bg-color-copyright{
+    background-color: #142A49;
+}
