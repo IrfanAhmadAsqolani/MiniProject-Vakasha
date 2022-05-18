@@ -1,4 +1,4 @@
-import './inputSearch.css'
+import './InputSearch.css'
 import React, { useState } from 'react'
 import { gql, useQuery, useLazyQuery, useMutation, useSubscription } from "@apollo/client";
 
