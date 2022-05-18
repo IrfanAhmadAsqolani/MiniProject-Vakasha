@@ -13,3 +13,11 @@
     border-color: #142A49;
     border-radius: 8px;
 }
+
+#size-teks{
+    font-size: 10pt !important;
+}
+
+#set-fixed{
+    background-color: #142A49;
+}

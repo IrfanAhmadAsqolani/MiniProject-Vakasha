@@ -9,3 +9,12 @@
     border-color: #142A49;
     border-radius: 8px;
 }
+
+#margin-teks{
+    margin-top: 290px;
+}
+
+.size-teks{
+    font-size: 60px;
+    color: #fff;
+}

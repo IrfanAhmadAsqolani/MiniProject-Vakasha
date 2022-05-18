@@ -9,17 +9,16 @@ import $ from 'jquery';
 import Popper from '@popperjs/core';
 import 'bootstrap-icons/font/bootstrap-icons.css';
 import { ApolloProvider } from '@apollo/client';
-import client from './apollo-client';
+import client from './ApolloClient';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <ApolloProvider client={client}>
-    <React.StrictMode>
+    {/* <React.StrictMode> */} 
       <App />
-    </React.StrictMode>  
-  </ApolloProvider>,
-  document.getElementById('root')
-  
+    {/* </React.StrictMode>   */}
+  </ApolloProvider>
+  // document.getElementById('root')
 );
 
 // If you want to start measuring performance in your app, pass a function
