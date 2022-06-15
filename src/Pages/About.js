@@ -9,7 +9,7 @@ function About() {
       <Navbar/>
       <div className='d-flex justify-content-center'>
         <div className='mt-5 mb-5'>
-          <img className='rounded-circle' src={foto_profil} style={{ height:"200px"}}  alt="img" />
+          <img className='rounded-circle mt-5' src={foto_profil} style={{ height:"200px"}}  alt="img" />
         </div>
       </div>
 

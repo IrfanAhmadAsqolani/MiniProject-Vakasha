@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { gql, useQuery, useLazyQuery, useMutation, useSubscription } from "@apollo/client";
+import { gql, useLazyQuery, useMutation } from "@apollo/client";
 import Navbar from '../../Component/Navbar/Navbar'
 import Footer from '../../Component/Footer/Footer'
 import Subscribe from '../../Component/Subscribe/Subscribe'
@@ -67,6 +67,7 @@ function DetailsPlaces() {
   console.info("id: ",params.id);
   console.info("kategori:",params.kategori);
   
+  // handle pengolahan data ke graphQL
   const [ GetDetailsPlaces, { data: dataPlaces, loading: loadingPlaces }] = useLazyQuery(GetDataPlaces);  
   const [ GetRecommendPlacesInCity, { data: dataRecommendPlaces, loading: loadingRecommendPlaces }] = useLazyQuery(GetRecommendPlaces);  
   useEffect(() => {
@@ -74,6 +75,7 @@ function DetailsPlaces() {
     GetRecommendPlacesInCity({ variables: { kategori: params.kategori, id: params.id } });
   },[]);
 
+  // handle pengolahan data ke graphQL
   const [statusLike, setStatusLike] = useState(true);
   const [SetLikePlaces, { loading: loadingSetLikePlaces }] = useMutation(LikePlaces, {
     refetchQueries: [GetDataPlaces],
@@ -82,6 +84,7 @@ function DetailsPlaces() {
     refetchQueries: [GetDataPlaces],
   });
 
+  // handle button like ketika di klik
   const onClickLike = () => {
     SetLikePlaces({ variables: { id : params.id, } });
     setStatusLike(!statusLike);
@@ -95,13 +98,13 @@ function DetailsPlaces() {
     return (
       <div className='container'>
         <svg version="1.1" id="L4" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 100 100" enableBackground="new 0 0 0 0" xmlSpace="preserve">
-          <circle className='' fill="#142A49" stroke="none" cx={40} cy={30} r={4}>
+          <circle className='' fill="#142A49" stroke="none" cx={43} cy={30} r={3}>
             <animate attributeName="opacity" dur="1s" values="0;1;0" repeatCount="indefinite" begin="0.1" />    
           </circle>
-          <circle className='' fill="#142A49" stroke="none" cx={50} cy={30} r={4}>
+          <circle className='' fill="#142A49" stroke="none" cx={50} cy={30} r={3}>
             <animate attributeName="opacity" dur="1s" values="0;1;0" repeatCount="indefinite" begin="0.2" />       
           </circle>
-          <circle className='' fill="#142A49" stroke="none" cx={60} cy={30} r={4}>
+          <circle className='' fill="#142A49" stroke="none" cx={57} cy={30} r={3}>
             <animate attributeName="opacity" dur="1s" values="0;1;0" repeatCount="indefinite" begin="0.3" />     
           </circle>
         </svg>
@@ -119,7 +122,7 @@ function DetailsPlaces() {
           {dataPlaces?.Places.map((places) => (
               <>
                 <div className='mt-5'>
-                  <img className='mt-5' id='size-img' src={places.img_url}  alt={places.img_url}/>
+                  <img className='mt-5 shadow-lg bg-white rounded' id='size-img' src={places.img_url}  alt={places.img_url}/>
                 </div>
                 <div className='row mt-4 mb-2 '>
                   <div className='d-flex justify-content-between'>
@@ -137,11 +140,21 @@ function DetailsPlaces() {
                       </div>
                     </div>
                   </div>
-                  
-                  
                 </div>
-                <div className='row col-auto'>
-                  <p className='fs-5'>{places.desc}</p>            
+                {/* <div className='row col-auto'>
+                    <p className='fs-6'>{places.desc}</p>            
+                </div> */}
+                <div className='row '>
+                    <div className='col-7'>
+                      <p className='fs-6'>{places.desc}</p>            
+                    </div>
+                    <div className='col-5'>
+                    <div className="mapouter">
+                      <div className="gmap_canvas">
+                        <iframe width={500} height={400} id="gmap_canvas" src="https://www.google.com/maps/embed?origin=mfe&pb=!1m3!2m1!1skuta+beach!6i13" frameBorder={0} scrolling="no" marginHeight={0} marginWidth={0} />
+                      </div>
+                    </div>
+                    </div>
                 </div>
               </>
           ))}
@@ -153,21 +166,23 @@ function DetailsPlaces() {
               {dataRecommendPlaces?.Places.map((recommendPlaces) => ( 
                 <>
                   <div className="col d-flex justify-content-center">
-                    <div className="card">
-                      <img src={recommendPlaces.img_url} className="card-img-top" id='size-foto' alt={recommendPlaces.name} />
-                      <div className="card-body">
-                        <div className='d-flex justify-content-between'>
-                          <h5 className="card-title fw-bold mb-3">{recommendPlaces.name}</h5>
-                          <div className='d-flex ps-2'>
-                            <i className="bi bi-heart-fill" id='icon-like'></i>
-                            <p className='fs-6 ps-2'>{recommendPlaces.like}</p>
+                    <div data-aos="zoom-in-up" data-aos-duration="2000">
+                      <div className="card shadow bg-white rounded">
+                        <img src={recommendPlaces.img_url} className="card-img-top" id='size-foto' alt={recommendPlaces.name} />
+                        <div className="card-body">
+                          <div className='d-flex justify-content-between'>
+                            <h5 className="card-title fw-bold mb-3">{recommendPlaces.name}</h5>
+                            <div className='d-flex ps-2'>
+                              <i className="bi bi-heart-fill" id='icon-like'></i>
+                              <p className='fs-6 ps-2'>{recommendPlaces.like}</p>
+                            </div>
+                          </div>
+                          <div className='text-center'>
+                            <a href= {`/DetailsPlaces/${recommendPlaces.id}/${recommendPlaces.category}`} className="btn text-center" id='btn-details'>See Details</a>
                           </div>
                         </div>
-                        <div className='text-center'>
-                          <a href= {`/DetailsPlaces/${recommendPlaces.id}/${recommendPlaces.category}`} className="btn text-center" id='btn-details'>See Details</a>
-                        </div>
                       </div>
-                    </div>
+                    </div>                    
                   </div>
                 </>
               ))}

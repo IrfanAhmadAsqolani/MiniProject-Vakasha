@@ -11,7 +11,7 @@ h5{
     background-color: #142A49;
     border-color: #142A49;
     border-radius: 20px;
-    width: 250px;
+    width: 100%;
 }
 
 #border-color{
@@ -19,7 +19,7 @@ h5{
 }
 
 #size-foto{
-    height: 165.54px;
+    height: 200px !important;
 }
 
 #icon-like{

@@ -28,11 +28,12 @@ function TrendingPlaces() {
             <div className='row'>
                 <h1><strong>Trending Places</strong></h1>
             </div>
-            <div className="row row-cols-1 row-cols-md-4 g-4 mt-0 ms-1">
+            <div className="row row-cols-1 row-cols-md-4 row-cols-sm-3 g-4 mt-0 ms-1">
               {dataTrendingPlaces?.Places.map((trendingPlaces) => ( 
                 <>
-                    <div className="col d-flex justify-content-center">
-                      <div className="card">
+                  <div className="col d-flex justify-content-center">
+                    <div data-aos="zoom-in-up" data-aos-duration="2000">
+                      <div className="card shadow bg-white rounded">
                         <img src={trendingPlaces.img_url} className="card-img-top" id='size-foto' alt={trendingPlaces.name} />
                         <div className="card-body">
                           <div className='d-flex justify-content-between'>
@@ -49,6 +50,7 @@ function TrendingPlaces() {
                         </div>
                       </div>
                     </div>
+                  </div>
                 </>
               ))}
             </div>

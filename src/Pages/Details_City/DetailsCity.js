@@ -1,6 +1,6 @@
 import './DetailsCity.css'
-import React, { useState, useEffect } from 'react'
-import { gql, useQuery, useLazyQuery, useMutation, useSubscription } from "@apollo/client";
+import React, { useEffect } from 'react'
+import { gql, useLazyQuery, } from "@apollo/client";
 import Navbar from '../../Component/Navbar/Navbar'
 import Footer from '../../Component/Footer/Footer'
 import Subscribe from '../../Component/Subscribe/Subscribe'
@@ -52,18 +52,17 @@ function DetailsCity() {
     return ( 
       <div className='container'>
         <svg version="1.1" id="L4" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 100 100" enableBackground="new 0 0 0 0" xmlSpace="preserve">
-          <circle className='' fill="#142A49" stroke="none" cx={40} cy={30} r={4}>
+          <circle className='' fill="#142A49" stroke="none" cx={43} cy={30} r={3}>
             <animate attributeName="opacity" dur="1s" values="0;1;0" repeatCount="indefinite" begin="0.1" />    
           </circle>
-          <circle className='' fill="#142A49" stroke="none" cx={50} cy={30} r={4}>
+          <circle className='' fill="#142A49" stroke="none" cx={50} cy={30} r={3}>
             <animate attributeName="opacity" dur="1s" values="0;1;0" repeatCount="indefinite" begin="0.2" />       
           </circle>
-          <circle className='' fill="#142A49" stroke="none" cx={60} cy={30} r={4}>
+          <circle className='' fill="#142A49" stroke="none" cx={57} cy={30} r={3}>
             <animate attributeName="opacity" dur="1s" values="0;1;0" repeatCount="indefinite" begin="0.3" />     
           </circle>
         </svg>
       </div>
-      
     )
   }
 
@@ -76,13 +75,13 @@ function DetailsCity() {
           {dataCities?.Top_Cities.map((cities) => (
               <>
                 <div className='mt-5'>
-                  <img className='mt-5' id='size-img' src={cities.img_url}  alt={cities.img_url}/>
+                  <img className='mt-5 shadow-lg bg-white rounded' id='size-img' src={cities.img_url}  alt={cities.img_url}/>
                 </div>
                 <div className='row mt-4 mb-2'>
                   <h1><strong>{cities.name}</strong></h1>
                 </div>
                 <div className='row col-auto'>
-                  <p className='fs-5'>{cities.desc}</p>            
+                  <p className='fs-6'>{cities.desc}</p>            
                 </div>
                 
               </>
@@ -97,7 +96,7 @@ function DetailsCity() {
               {dataPopularPlaces?.Places.map((popularPlaces) => ( 
                 <>
                   <div className="col d-flex justify-content-center">
-                    <div className="card">
+                    <div className="card shadow bg-white rounded">
                       <img src={popularPlaces.img_url} className="card-img-top" id='size-foto' alt={popularPlaces.name} />
                       <div className="card-body">
                         <div className='d-flex justify-content-between'>

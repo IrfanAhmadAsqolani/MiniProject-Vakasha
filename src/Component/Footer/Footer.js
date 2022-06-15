@@ -45,23 +45,21 @@ function Footer() {
                   <h4 className="text-uppercase fw-bold">FOLLOW US</h4>
                   <hr className="mb-4 mt-0 d-inline-block mx-auto" id='garis-footer'/>
                   <p>Follow Us on Social Media</p>
-                  <div className='d-flex'>
-                    <a href="#" className="text-white me-4">
-                      <i className="bi bi-instagram"></i>
-                    </a>
-                    <a href="#" className="text-white me-4">
-                      <i className="bi bi-facebook"></i>
-                    </a>
-                    <a href="#" className="text-white me-4">
-                      <i className="bi bi-twitter"></i>
-                    </a>
-                    <a href="#" className="text-white me-4">
-                      <i className="bi bi-youtube"></i>
-                    </a>
-                    <a href="#" className="text-white me-4">
-                      <i className="bi bi-tiktok"></i>
-                    </a>
-                  </div>  
+                  <a href="#" className="text-white me-4">
+                    <i className="bi bi-instagram"></i>
+                  </a>
+                  <a href="#" className="text-white me-4">
+                    <i className="bi bi-facebook"></i>
+                  </a>
+                  <a href="#" className="text-white me-4">
+                    <i className="bi bi-twitter"></i>
+                  </a>
+                  <a href="#" className="text-white me-4">
+                    <i className="bi bi-youtube"></i>
+                  </a>
+                  <a href="#" className="text-white me-4">
+                    <i className="bi bi-tiktok"></i>
+                  </a>
                 </div>  
               </div>
             </div>

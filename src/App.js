@@ -8,8 +8,17 @@ import SignUp from './Pages/SignUp';
 import DetailsCity from './Pages/Details_City/DetailsCity';
 import DetailsPlaces from './Pages/Details_Places/DetailsPlaces';
 import {BrowserRouter, Routes, Route} from "react-router-dom";
+import React, { useEffect } from "react";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 function App() {
+  
+  useEffect(() => {
+    AOS.init();
+    AOS.refresh();
+  });
+  
   return (
     <>
       <BrowserRouter>
