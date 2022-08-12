@@ -70,52 +70,55 @@ function DetailsCity() {
     <>
         <Navbar/>
         <div className='container mt-5'>
-          {console.log(dataCities)}
-          {console.log(dataPopularPlaces)}
-          {dataCities?.Top_Cities.map((cities) => (
-              <>
-                <div className='mt-5'>
-                  <img className='mt-5 shadow-lg bg-white rounded' id='size-img' src={cities.img_url}  alt={cities.img_url}/>
-                </div>
-                <div className='row mt-4 mb-2'>
-                  <h1><strong>{cities.name}</strong></h1>
-                </div>
-                <div className='row col-auto'>
-                  <p className='fs-6'>{cities.desc}</p>            
-                </div>
-                
-              </>
-          ))}
-          <div className='container mt-2 mb-5'>
-            <div className='row'>
-              {dataCities?.Top_Cities.map((cities) => (
-                <h1 className='mb-2 px-0'><strong>Popular Places Around {cities.name}</strong></h1>
-              ))}
-            </div>
-            <div className="row row-cols-1 row-cols-md-4 g-4 mt-0 px-0">
-              {dataPopularPlaces?.Places.map((popularPlaces) => ( 
+          <div data-aos="fade-up" data-aos-duration="2000">
+            {console.log(dataCities)}
+            {console.log(dataPopularPlaces)}
+            {dataCities?.Top_Cities.map((cities) => (
                 <>
-                  <div className="col d-flex justify-content-center">
-                    <div className="card shadow bg-white rounded">
-                      <img src={popularPlaces.img_url} className="card-img-top" id='size-foto' alt={popularPlaces.name} />
-                      <div className="card-body">
-                        <div className='d-flex justify-content-between'>
-                          <h5 className="card-title fw-bold mb-3">{popularPlaces.name}</h5>
-                          <div className='d-flex ps-2'>
-                            <i className="bi bi-heart-fill" id='icon-like'></i>
-                            <p className='fs-6 ps-2'>{popularPlaces.like}</p>
+                  <div className='mt-5'>
+                    <img className='mt-5 shadow-lg bg-white rounded' id='size-img' src={cities.img_url}  alt={cities.img_url}/>
+                  </div>  
+                  <div className='row mt-4 mb-2'>
+                    <h1><strong>{cities.name}</strong></h1>
+                  </div>
+                  <div className='row col-auto'>
+                    <p className='fs-6'>{cities.desc}</p>            
+                  </div>
+                </>
+            ))}
+            <div className='container mt-2 mb-5'>
+              <div className='row'>
+                {dataCities?.Top_Cities.map((cities) => (
+                  <h1 className='mb-2 px-0'><strong>Popular Places Around {cities.name}</strong></h1>
+                ))}
+              </div>
+              <div className="row row-cols-1 row-cols-md-4 g-4 mt-0 px-0">
+                {dataPopularPlaces?.Places.map((popularPlaces) => ( 
+                  <>
+                    <div className="col d-flex justify-content-center">
+                      <div data-aos="zoom-in-up" data-aos-duration="2000">
+                        <div className="card shadow bg-white rounded">
+                          <img src={popularPlaces.img_url} className="card-img-top" id='size-foto' alt={popularPlaces.name} />
+                          <div className="card-body">
+                            <div className='d-flex justify-content-between'>
+                              <h5 className="card-title fw-bold mb-3">{popularPlaces.name}</h5>
+                              <div className='d-flex ps-2'>
+                                <i className="bi bi-heart-fill" id='icon-like'></i>
+                                <p className='fs-6 ps-2'>{popularPlaces.like}</p>
+                              </div>
+                            </div>
+                            <div className='text-center'>
+                              <a href= {`/DetailsPlaces/${popularPlaces.id}/${popularPlaces.category}`} className="btn text-center" id='btn-details'>See Details</a>
+                            </div>
                           </div>
-                        </div>
-                        <div className='text-center'>
-                          <a href= {`/DetailsPlaces/${popularPlaces.id}/${popularPlaces.category}`} className="btn text-center" id='btn-details'>See Details</a>
                         </div>
                       </div>
                     </div>
-                  </div>
-                </>
-              ))}
-            </div>
-          </div>  
+                  </>
+                ))}
+              </div>
+            </div>  
+          </div>
         </div>
         <Subscribe/>
         <Footer/>

@@ -23,6 +23,9 @@ function Navbar() {
                                     <a className="nav-link active" href="/Find"><strong id='size-teks'>FIND</strong></a>
                                 </li>
                                 <li className="nav-item">
+                                    <a className="nav-link active" href="#"><strong id='size-teks'>BLOG</strong></a>
+                                </li>
+                                <li className="nav-item">
                                     <a className="nav-link active" href="/About"><strong id='size-teks'>ABOUT US</strong></a>
                                 </li>
                                 <li className="nav-item">

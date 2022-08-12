@@ -28,7 +28,7 @@ function TrendingPlaces() {
             <div className='row'>
                 <h1><strong>Trending Places</strong></h1>
             </div>
-            <div className="row row-cols-1 row-cols-md-4 row-cols-sm-3 g-4 mt-0 ms-1">
+            <div className="row row-cols-1 row-cols-lg-4 row-cols-md-3 row-cols-sm-2 g-4 mt-0 ms-1">
               {dataTrendingPlaces?.Places.map((trendingPlaces) => ( 
                 <>
                   <div className="col d-flex justify-content-center">

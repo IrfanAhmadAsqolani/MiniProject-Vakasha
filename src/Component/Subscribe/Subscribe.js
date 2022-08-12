@@ -31,21 +31,23 @@ function Subscribe() {
   return (
     <>
         <div className='container mt-5 mb-5'> 
-            <form className='row px-4'>
-                <div className='col-md-6 col-sm-6 col-xl-6 col-xs-6 ps-4 '>
-                    <h4><strong className='color-heading'>Subscribe for Exclusive Email-only Recomendations</strong></h4>
-                    <h5>Exclusive access to more place recommendations</h5>
-                </div>
-                <div className='col-md-4 col-sm-4 col-xl-4 col-xs-4'>
-                    <div className="input-group input-group-lg" id='input-email'>
-                        <input type="email" className="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg" 
-                        placeholder='example@example.com' onChange={onChangeSubs}/>
+            <div data-aos="fade-up" data-aos-duration="2000">
+                <form className='row px-4'>
+                    <div className='col-lg-6 col-md-6 col-sm-12 col-xs-12'>
+                        <h4><strong className='color-heading'>Subscribe for Exclusive Email-only Recomendations</strong></h4>
+                        <h5>Exclusive access to more place recommendations</h5>
                     </div>
-                </div>
-                <div className='col-md-2 col-sm-2 col-xl-2 col-xs-2'>
-                    <button type="submit" className="btn btn-lg" id='btn-subs' onClick={onClickSubs}>&emsp;Subscribe&emsp;</button>
-                </div>
-            </form>
+                    <div className='col-lg-4 col-md-4 col-sm-12 col-xs-12'>
+                        <div className="input-group input-group-lg" id='input-email'>
+                            <input type="email" className="form-control mt-2" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg" 
+                            placeholder='example@example.com' onChange={onChangeSubs}/>
+                        </div>
+                    </div>
+                    <div className='col-lg-2 col-md-2 col-sm-12 col-xs-12'>
+                        <button type="submit" className="btn btn-lg mt-2 w-100" id='btn-subs' onClick={onClickSubs}>&emsp;Subscribe&emsp;</button>
+                    </div>
+                </form>
+            </div>
         </div>
     </>
   )

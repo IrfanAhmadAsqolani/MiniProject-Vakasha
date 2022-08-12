@@ -24,7 +24,7 @@ function PopularCities() {
           <div className='row'>
               <h1 className='mb-5'><strong>Popular Cities</strong></h1>
           </div>
-          <div className='row row-cols-1 row-cols-md-4 row-cols-sm-2 row-cols-xs-1 row-cols-xl-4 row-cols-lg-4 g-3'>
+          <div className='row row-cols-1 row-cols-lg-4 row-cols-md-3 row-cols-sm-2 g-3'>
             {dataTopCities?.Top_Cities.map((cities) => ( 
               <>
                 <div className="col">

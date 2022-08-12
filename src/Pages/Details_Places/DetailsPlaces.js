@@ -17,6 +17,7 @@ function DetailsPlaces() {
         province
         img_url
         like
+        location
       }
     }
   `;
@@ -117,77 +118,79 @@ function DetailsPlaces() {
     <>
         <Navbar/>
         <div className='container mt-5'>
-          {console.log(dataPlaces)}
-          {console.log(dataRecommendPlaces)}
-          {dataPlaces?.Places.map((places) => (
-              <>
-                <div className='mt-5'>
-                  <img className='mt-5 shadow-lg bg-white rounded' id='size-img' src={places.img_url}  alt={places.img_url}/>
-                </div>
-                <div className='row mt-4 mb-2 '>
-                  <div className='d-flex justify-content-between'>
-                    <div className='flex-column'>
-                      <h1><strong>{places.name}</strong></h1>
-                      <p className='fs-5' id='color-text'>{places.city}, {places.province}</p>
-                    </div>
-                    <div className='d-flex fs-3'>
-                      {statusLike? <button type="submit" className="btn px-0" onClick={onClickLike}><i className="bi bi-heart fs-4" id='icon-like'></i></button>
-                      : <button type="submit" className="btn px-0" onClick={onClickDislike}><i className="bi bi-heart-fill fs-4" id='icon-like'></i></button>}
-                      {/* <button type="submit" className="btn px-0" onClick={onClickLike}><i className="bi bi-hand-thumbs-up-fill fs-4" id='icon-like'></i></button>
-                      <button type="submit" className="btn px-0" onClick={onClickDislike}><i className="bi bi-hand-thumbs-down-fill fs-4 ps-2" id='icon-like'></i></button> */}
-                      <div className='d-flex justify-content-center align-items-center'>
-                        <p className='ps-2 pt-2 mb-2'>{places.like} likes</p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                {/* <div className='row col-auto'>
-                    <p className='fs-6'>{places.desc}</p>            
-                </div> */}
-                <div className='row '>
-                    <div className='col-7'>
-                      <p className='fs-6'>{places.desc}</p>            
-                    </div>
-                    <div className='col-5'>
-                    <div className="mapouter">
-                      <div className="gmap_canvas">
-                        <iframe width={500} height={400} id="gmap_canvas" src="https://www.google.com/maps/embed?origin=mfe&pb=!1m3!2m1!1skuta+beach!6i13" frameBorder={0} scrolling="no" marginHeight={0} marginWidth={0} />
-                      </div>
-                    </div>
-                    </div>
-                </div>
-              </>
-          ))}
-          <div className='container mt-2 mb-5'>
-            <div className='row'>
-              <h1 className='mb-2 px-0'><strong>Suggested For You</strong></h1>
-            </div>
-            <div className="row row-cols-1 row-cols-md-4 g-4 mt-0 px-0">
-              {dataRecommendPlaces?.Places.map((recommendPlaces) => ( 
+          <div data-aos="fade-up" data-aos-duration="2000">
+            {console.log(dataPlaces)}
+            {console.log(dataRecommendPlaces)}
+            {dataPlaces?.Places.map((places) => (
                 <>
-                  <div className="col d-flex justify-content-center">
-                    <div data-aos="zoom-in-up" data-aos-duration="2000">
-                      <div className="card shadow bg-white rounded">
-                        <img src={recommendPlaces.img_url} className="card-img-top" id='size-foto' alt={recommendPlaces.name} />
-                        <div className="card-body">
-                          <div className='d-flex justify-content-between'>
-                            <h5 className="card-title fw-bold mb-3">{recommendPlaces.name}</h5>
-                            <div className='d-flex ps-2'>
-                              <i className="bi bi-heart-fill" id='icon-like'></i>
-                              <p className='fs-6 ps-2'>{recommendPlaces.like}</p>
-                            </div>
-                          </div>
-                          <div className='text-center'>
-                            <a href= {`/DetailsPlaces/${recommendPlaces.id}/${recommendPlaces.category}`} className="btn text-center" id='btn-details'>See Details</a>
+                    <div className='mt-5'>
+                      <img className='mt-5 shadow-lg bg-white rounded' id='size-img' src={places.img_url}  alt={places.img_url}/>
+                    </div>
+                    <div className='row mt-4 mb-2 '>
+                      <div className='d-flex justify-content-between'>
+                        <div className='flex-column'>
+                          <h1><strong>{places.name}</strong></h1>
+                          <p className='fs-5' id='color-text'>{places.city}, {places.province}</p>
+                        </div>
+                        <div className='d-flex fs-3'>
+                          {statusLike? <button type="submit" className="btn px-0" onClick={onClickLike}><i className="bi bi-heart fs-4" id='icon-like'></i></button>
+                          : <button type="submit" className="btn px-0" onClick={onClickDislike}><i className="bi bi-heart-fill fs-4" id='icon-like'></i></button>}
+                          {/* <button type="submit" className="btn px-0" onClick={onClickLike}><i className="bi bi-hand-thumbs-up-fill fs-4" id='icon-like'></i></button>
+                          <button type="submit" className="btn px-0" onClick={onClickDislike}><i className="bi bi-hand-thumbs-down-fill fs-4 ps-2" id='icon-like'></i></button> */}
+                          <div className='d-flex justify-content-center align-items-center'>
+                            <p className='ps-2 pt-2 mb-2'>{places.like} likes</p>
                           </div>
                         </div>
                       </div>
-                    </div>                    
-                  </div>
+                    </div>
+                    {/* <div className='row col-auto'>
+                        <p className='fs-6'>{places.desc}</p>            
+                    </div> */}
+                    <div className='row '>
+                        <div className='col-7'>
+                          <p className='fs-6'>{places.desc}</p>            
+                        </div>
+                        <div className='col-5'>
+                        <div className="mapouter">
+                          <div className="gmap_canvas">
+                            <iframe width={500} height={400} id="gmap_canvas" src={places.location} frameBorder={0} scrolling="no" marginHeight={0} marginWidth={0} />
+                          </div>
+                        </div>
+                        </div>
+                    </div>
                 </>
-              ))}
-            </div>
-          </div>  
+            ))}
+            <div className='container mt-2 mb-5'>
+              <div className='row'>
+                <h1 className='mb-2 px-0'><strong>Suggested For You</strong></h1>
+              </div>
+              <div className="row row-cols-1 row-cols-md-4 g-4 mt-0 px-0">
+                {dataRecommendPlaces?.Places.map((recommendPlaces) => ( 
+                  <>
+                    <div className="col d-flex justify-content-center">
+                      <div data-aos="zoom-in-up" data-aos-duration="2000">
+                        <div className="card shadow bg-white rounded">
+                          <img src={recommendPlaces.img_url} className="card-img-top" id='size-foto' alt={recommendPlaces.name} />
+                          <div className="card-body">
+                            <div className='d-flex justify-content-between'>
+                              <h5 className="card-title fw-bold mb-3">{recommendPlaces.name}</h5>
+                              <div className='d-flex ps-2'>
+                                <i className="bi bi-heart-fill" id='icon-like'></i>
+                                <p className='fs-6 ps-2'>{recommendPlaces.like}</p>
+                              </div>
+                            </div>
+                            <div className='text-center'>
+                              <a href= {`/DetailsPlaces/${recommendPlaces.id}/${recommendPlaces.category}`} className="btn text-center" id='btn-details'>See Details</a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>                    
+                    </div>
+                  </>
+                ))}
+              </div>
+            </div>  
+          </div>
         </div>
         <Subscribe/>
         <Footer/>

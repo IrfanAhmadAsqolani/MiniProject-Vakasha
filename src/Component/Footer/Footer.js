@@ -6,7 +6,7 @@ function Footer() {
     <>
        <div className="mt-5">
         <footer className="text-center text-lg-start text-white" id='bg-color-footer'>
-          <section className="container">
+          <section className="container pt-4">
             <div className="text-center text-md-start">
               <div className="row">
                 <div className="col-md-3 col-lg-3 col-xl-3 mb-4 mt-4">
